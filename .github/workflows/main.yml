@@ -10,4 +10,4 @@ jobs:
     uses: anish-test/shared-workflow/.github/workflows/main.yml@main
     secrets: inherit
     with:
-      MANIFEST_APP_NAME: ${{ vars.MANIFEST_APP_NAME }}
+      APP: sth
