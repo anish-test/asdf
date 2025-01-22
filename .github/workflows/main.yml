@@ -6,8 +6,21 @@ on:
       - main
 
 jobs:
-  deploy:
-    uses: anish-test/shared-workflow/.github/workflows/main.yml@main
-    secrets: inherit
-    with:
-      APP: sth
+  build-push:
+    runs-on: ubuntu-latest
+    environment: someenv
+    outputs:
+      image_id: ${{ steps.image_id.outputs.id }}
+    steps:
+      - name: test
+        run: |
+          echo a
+          echo ${{ env.DEPLOYMENT_ENV }}
+          echo ${{ inputs.APP }}
+      
+# jobs:
+#   deploy:
+#     uses: anish-test/shared-workflow/.github/workflows/main.yml@main
+#     secrets: inherit
+#     with:
+#       APP: sth
